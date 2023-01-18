@@ -14,4 +14,13 @@ public class Monster {
         this.damage = damage;
         this.exp = exp;
     }
+    void getBasicInformation() {
+        System.out.println("-----------------------------------------------------------");
+        System.out.println("Nazwa: " + name);
+        System.out.println("Poziom: " + level);
+        System.out.println("Punkty życia: " + healthPoints);
+        System.out.println("Obrażenia: " + damage);
+        System.out.println("Exp do zdobycia: " + exp);
+        System.out.println("-----------------------------------------------------------");
+    }
 }

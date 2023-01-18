@@ -1,4 +1,3 @@
-import java.lang.reflect.Array;
 import java.util.Scanner;
 
 public class MyCharacter {
@@ -6,7 +5,9 @@ public class MyCharacter {
     String profession;
     String userName;
     int level;
+    final int maxLevel = 300;
     int experience;
+    int requiredExperience;
     int gold;
 
     MyCharacter() {
@@ -69,6 +70,19 @@ public class MyCharacter {
                 System.out.println();
                 System.out.println();
             }
+        }
+    }
+
+    boolean isEnaughExperienceToLevelUp() {
+        return experience >= requiredExperience; // Sprawdzamy czy exp >= reqExp | Jeśli tak = zwraca true | Jeśli nie = zwraca false
+    }
+
+    // Sprawdzenie czy gracz może awansować na wyższy poziom, jeśli tak to level zwiększa się +1
+    void checkLevelUp() {
+        if (isEnaughExperienceToLevelUp() && level < maxLevel) {
+            experience -= requiredExperience;
+            level++;
+            requiredExperience = (requiredExperience * 5) / 4;
         }
     }
 
