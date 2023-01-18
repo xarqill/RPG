@@ -2,16 +2,61 @@ import java.util.Scanner;
 
 public class MyCharacter {
     // Podstawowe atrybuty i ich domyślne wartości przydzielane ----> postaci
-    String profession;
-    String userName;
-    int level = 1;
-    final int maxLevel = 300;
-    int experience = 0;
-    int requiredExperience = 10;
-    int gold = 0;
+   private final String profession;
+   private final String userName;
+   private final int maxLevel = 300;
+   private int level = 1;
+   private int experience = 0;
+   private int requiredExperience = 10;
+   private int gold = 0;
+
+    public String getProfession() {
+        return profession;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public int getMaxLevel() {
+        return maxLevel;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public int getExperience() {
+        return experience;
+    }
+
+    public int getRequiredExperience() {
+        return requiredExperience;
+    }
+
+    public int getGold() {
+        return gold;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
+    public void setExperience(int experience) {
+        this.experience = experience;
+    }
+
+    public void setRequiredExperience(int requiredExperience) {
+        this.requiredExperience = requiredExperience;
+    }
+
+    public void setGold(int gold) {
+        this.gold = gold;
+    }
 
     MyCharacter(String userName, String profession) {
-
+        this.userName = userName;
+        this.profession = profession;
 
     }
     boolean isEnaughExperienceToLevelUp() {
@@ -26,7 +71,6 @@ public class MyCharacter {
             requiredExperience = (requiredExperience * 5) / 4;
         }
     }
-
     void getBasicInformation() {
         System.out.println("-----------------------------------------------------------");
         System.out.println("Nazwa użytkownika: " + userName);
