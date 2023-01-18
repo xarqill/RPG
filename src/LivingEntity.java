@@ -1,7 +1,7 @@
 import java.util.Objects;
 
 public class LivingEntity {
-    private String name;
+    private final String name;
     private int level;
     private int experience;
     private int gold;

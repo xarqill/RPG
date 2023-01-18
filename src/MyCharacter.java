@@ -1,23 +1,12 @@
-import java.util.Objects;
-
-public class MyCharacter {
+public class MyCharacter extends LivingEntity {
     // Podstawowe atrybuty i ich domyślne wartości przydzielane ----> postaci
-    private final String userName;
     private final String profession;
     private final int maxLevel = 300;
-    private int level = 1;
-    private int experience = 0;
     private int requiredExperience = 10;
-    private int gold = 0;
 
-    public MyCharacter(String userName, String profession) {
-        this.userName = userName;
+    public MyCharacter(String profession) {
         this.profession = profession;
 
-    }
-
-    public String getUserName() {
-        return userName;
     }
 
     public String getProfession() {
@@ -28,23 +17,15 @@ public class MyCharacter {
         return maxLevel;
     }
 
+    @Override
     public int getLevel() {
         return level;
     }
 
+    @Override
     public void setLevel(int level) {
         if (level <= 0) {
             this.level = level;
-        }
-    }
-
-    public int getExperience() {
-        return experience;
-    }
-
-    public void setExperience(int experience) {
-        if (experience < 0) {
-            this.experience = experience;
         }
     }
 
@@ -54,16 +35,6 @@ public class MyCharacter {
 
     public void setRequiredExperience(int requiredExperience) {
         this.requiredExperience = requiredExperience;
-    }
-
-    public int getGold() {
-        return gold;
-    }
-
-    public void setGold(int gold) {
-        if (gold < 0) {
-            this.gold = gold;
-        }
     }
 
     public boolean isEnaughExperienceToLevelUp() {
@@ -77,40 +48,5 @@ public class MyCharacter {
             level++;
             requiredExperience = (requiredExperience * 5) / 4;
         }
-    }
-
-    @Override
-    public String toString() {
-        return "MyCharacter{" +
-                "userName='" + userName + '\'' +
-                ", profession='" + profession + '\'' +
-                ", maxLevel=" + maxLevel +
-                ", level=" + level +
-                ", experience=" + experience +
-                ", requiredExperience=" + requiredExperience +
-                ", gold=" + gold +
-                '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        MyCharacter that = (MyCharacter) o;
-        return level == that.level
-                && experience == that.experience
-                && requiredExperience == that.requiredExperience
-                && gold == that.gold
-                && Objects.equals(userName, that.userName)
-                && Objects.equals(profession, that.profession);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(userName, profession, maxLevel, level, experience, requiredExperience, gold);
     }
 }

@@ -4,11 +4,7 @@ public class Main {
     static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        MyCharacter person = new MyCharacter(createUserName(), createProfession());
-        Monster monster = new Monster("pies", 1, 10, 1, 3);
-
-        System.out.println(person);
-        System.out.println(monster);
+        
     }
 
 
