@@ -30,7 +30,8 @@ public class Main {
                 System.out.println();
                 isCorrectUserName = false;
             }
-        } return userName;
+        }
+        return userName;
     }
 
     // Wybieranie profesji przez użytkownika
@@ -68,6 +69,7 @@ public class Main {
                 System.out.println();
                 System.out.println();
             }
-        } return profession;
+        }
+        return profession;
     }
 }
