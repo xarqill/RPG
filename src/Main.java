@@ -4,7 +4,7 @@ public class Main {
     static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        
+
     }
 
 
@@ -68,7 +68,7 @@ public class Main {
 
     private static void getBasicInformation(MyCharacter myCharacter) {
         System.out.println("-----------------------------------------------------------");
-        System.out.println("Nazwa użytkownika: " + myCharacter.getUserName());
+        System.out.println("Nazwa użytkownika: " + myCharacter.getName());
         System.out.println("Profesja: " + myCharacter.getProfession());
         System.out.println("Poziom: " + myCharacter.getLevel());
         System.out.println("Doświadczenie: " + myCharacter.getExperience());
@@ -76,18 +76,20 @@ public class Main {
         System.out.println("-----------------------------------------------------------");
     }
 
-//    private static boolean fight(MyCharacter myCharacter, Monster monster) {
-//        while (myCharacter.getHealthPoints <= 0 || monster.getHealthPoints() <= 0) {
-//            if (myCharacter.getHealthPoints > 0 && monster.getHealthPoints() > 0) {
-//                monster.setHealthPoints(monster.getHealthPoints() - myCharacter.getDamage());
-//                myCharacter.setHealthPoints(myCharacter.getHealthPoints - monster.getDamage());
-//            } else if (myCharacter.getHealthPoints <= 0 && monster.getHealthPoints() > 0) {
-//                System.out.println("Walkę wygrał: " + monster.getName());
-//                return false;
-//            } else if (monster.getHealthPoints() <= 0 && myCharacter.getHealthPoits > 0) {
-//                System.out.println("Walkę wygrał: " + myCharacter.getUserName());
-//                return true;
-//            }
-//        }
-//    }
+    private static boolean fight(MyCharacter myCharacter, Monster monster) {
+        while (true) {
+            if (myCharacter.getHealthPoints() <= 0 && monster.getHealthPoints() > 0) { // Sprawdzamy czy gracz jest martwy
+                System.out.println("Przegrałeś pojedynek z: " + monster.getName());
+                return false;
+            }
+            monster.setHealthPoints(monster.getHealthPoints() - myCharacter.getDamage()); // Gracz atakuje potwora
+
+            if (monster.getHealthPoints() <= 0) { // Sprawdzamy czy potwór jest martwy
+                System.out.println("Wygrałeś pojedynek z: " + monster.getName());
+                return true;
+            }
+            myCharacter.setHealthPoints(myCharacter.getHealthPoints() - monster.getDamage()); // Potwór atakuje gracza
+
+        }
+    }
 }
