@@ -4,9 +4,9 @@ public class MyCharacter extends LivingEntity {
     private final int maxLevel = 300;
     private int requiredExperience = 10;
 
-    public MyCharacter(String profession) {
+    public MyCharacter(String name, int level, int experience, int gold, int healthPoints, int damage, String profession) {
+        super(name, level, experience, gold, healthPoints, damage);
         this.profession = profession;
-
     }
 
     public String getProfession() {
@@ -15,18 +15,6 @@ public class MyCharacter extends LivingEntity {
 
     public int getMaxLevel() {
         return maxLevel;
-    }
-
-    @Override
-    public int getLevel() {
-        return level;
-    }
-
-    @Override
-    public void setLevel(int level) {
-        if (level <= 0) {
-            this.level = level;
-        }
     }
 
     public int getRequiredExperience() {
@@ -38,14 +26,14 @@ public class MyCharacter extends LivingEntity {
     }
 
     public boolean isEnaughExperienceToLevelUp() {
-        return experience >= requiredExperience; // Sprawdzamy czy exp >= reqExp | Jeśli tak = zwraca true | Jeśli nie = zwraca false
+        return getExperience() >= requiredExperience; // Sprawdzamy czy exp >= reqExp | Jeśli tak = zwraca true | Jeśli nie = zwraca false
     }
 
     // Sprawdzenie czy gracz może awansować na wyższy poziom, jeśli tak to level zwiększa się +1
     public void checkLevelUp() {
-        if (isEnaughExperienceToLevelUp() && level < maxLevel) {
-            experience -= requiredExperience;
-            level++;
+        if (isEnaughExperienceToLevelUp() && getLevel() < maxLevel) {
+            setExperience(getExperience() - requiredExperience);
+            setLevel(getLevel() + 1);
             requiredExperience = (requiredExperience * 5) / 4;
         }
     }
