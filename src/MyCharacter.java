@@ -112,7 +112,12 @@ public class MyCharacter {
             return false;
         }
         MyCharacter that = (MyCharacter) o;
-        return maxLevel == that.maxLevel && level == that.level && experience == that.experience && requiredExperience == that.requiredExperience && gold == that.gold && Objects.equals(userName, that.userName) && Objects.equals(profession, that.profession);
+        return level == that.level
+                && experience == that.experience
+                && requiredExperience == that.requiredExperience
+                && gold == that.gold
+                && Objects.equals(userName, that.userName)
+                && Objects.equals(profession, that.profession);
     }
 
     @Override
