@@ -5,8 +5,8 @@ public class Main {
     public static void main(String[] args) {
         MyCharacter person = new MyCharacter(createUserName(), createProfession());
 
-        System.out.println(person.userName);
-        System.out.println(person.profession);
+        System.out.println(person.getUserName());
+        System.out.println(person.getProfession());
     }
 
 

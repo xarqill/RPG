@@ -39,11 +39,13 @@ public class MyCharacter {
     }
 
     public void setLevel(int level) {
-        this.level = level;
+        if (level <= 0)
+            this.level = level;
     }
 
     public void setExperience(int experience) {
-        this.experience = experience;
+        if (experience < 0)
+            this.experience = experience;
     }
 
     public void setRequiredExperience(int requiredExperience) {
@@ -51,7 +53,8 @@ public class MyCharacter {
     }
 
     public void setGold(int gold) {
-        this.gold = gold;
+        if (gold < 0)
+            this.gold = gold;
     }
 
     MyCharacter(String userName, String profession) {
