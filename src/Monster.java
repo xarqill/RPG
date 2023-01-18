@@ -1,10 +1,47 @@
 public class Monster {
     // Podstawowe atrybuty dla każdego potwora
-    String name;
-    int level;
-    int healthPoints;
-    int damage;
-    int exp;
+    final private String name;
+    private int level;
+    private int healthPoints;
+    private int damage;
+    private int exp;
+
+    public String getName() {
+        return name;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
+    public int getHealthPoints() {
+        return healthPoints;
+    }
+
+    public void setHealthPoints(int healthPoints) {
+        this.healthPoints = healthPoints;
+    }
+
+    public int getDamage() {
+        return damage;
+    }
+
+    public void setDamage(int damage) {
+        this.damage = damage;
+    }
+
+    public int getExp() {
+        return exp;
+    }
+
+    public void setExp(int exp) {
+        this.exp = exp;
+    }
+
 
     // Konstruktor, który umożliwia szybkie nadawanie wartości podstawowym atrybutom potwora
     Monster(String name, int level, int healthPoints, int damage, int exp) {
@@ -14,7 +51,8 @@ public class Monster {
         this.damage = damage;
         this.exp = exp;
     }
-    void getBasicInformation() {
+
+    public void getBasicInformation() {
         System.out.println("-----------------------------------------------------------");
         System.out.println("Nazwa: " + name);
         System.out.println("Poziom: " + level);
