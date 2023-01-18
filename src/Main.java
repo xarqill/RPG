@@ -16,35 +16,36 @@ public class Main {
 
         MyCharacter person = new MyCharacter();
 
-
         Scanner scanner = new Scanner(System.in);
-        boolean isCorrectUserName = true;
-        boolean isCorrectProfession = true;
 
         // Utawianie userName przez użytkownika
-        while (isCorrectUserName) {
-            System.out.print("Podaj swój nick: ");
-            person.userName = scanner.nextLine();
+        private static void createUserName () {
+            boolean isCorrectUserName = true;
 
-            if (person.userName.length() < 5) {
-                System.out.println("Nazwa użytkownika nie może być krótsza niż 5 znaków!");
-                System.out.println();
-            } else if (person.userName.length() > 12) {
-                System.out.println("Nazwa użytkownika nie może być dłuższa niż 12 znaków!");
-                System.out.println();
-            } else {
-                System.out.println("Twoja nazwa użytkownika: " + person.userName);
-                System.out.println();
-                System.out.println();
-                isCorrectUserName = false;
+            while (isCorrectUserName) {
+                System.out.print("Podaj swój nick: ");
+                person.userName = scanner.nextLine();
+
+                if (person.userName.length() < 5) {
+                    System.out.println("Nazwa użytkownika nie może być krótsza niż 5 znaków!");
+                    System.out.println();
+                } else if (person.userName.length() > 12) {
+                    System.out.println("Nazwa użytkownika nie może być dłuższa niż 12 znaków!");
+                    System.out.println();
+                } else {
+                    System.out.println("Twoja nazwa użytkownika: " + person.userName);
+                    System.out.println();
+                    System.out.println();
+                    isCorrectUserName = false;
+                }
             }
         }
+    }
 
+    // Wybieranie profesji przez użytkownika
+    private static void createProfession() {
+        boolean isCorrectProfession = true;
 
-
-
-
-        // Wybieranie profesji przez użytkownika
         while (isCorrectProfession) {
             System.out.println("Dostępne profesje: [1] Wojownik || [2] Paladyn || [3] Zwiadowca || [4] Mag");
             System.out.print("Wybierz profesję postaci: ");
@@ -76,8 +77,6 @@ public class Main {
                 System.out.println();
             }
         }
-
-
-
     }
+}
 }

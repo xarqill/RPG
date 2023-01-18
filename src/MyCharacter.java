@@ -15,8 +15,6 @@ public class MyCharacter {
         level = 1;
         experience = 0;
         gold = 0;
-
-
     }
 
     boolean isEnaughExperienceToLevelUp() {
