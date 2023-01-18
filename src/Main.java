@@ -93,12 +93,12 @@ public class Main {
         }
     }
 
-    private static void win_fight(MyCharacter myCharacter, Monster monster) {
-        if (fight(myCharacter, monster)) {
+    private static void win_fight(MyCharacter myCharacter, Monster monster) { // Podsumowanie wygranej walki
+        if (fight(myCharacter, monster)) { // Dodanie expa i golda po wygranej walce
             myCharacter.setExperience(myCharacter.getExperience() + monster.getExperience());
             myCharacter.setGold(myCharacter.getGold() + monster.getGold());
 
-            if (myCharacter.isEnaughExperienceToLevelUp()) {
+            if (myCharacter.isEnaughExperienceToLevelUp()) { // Sprawdzenie czy exp jest większy niż wymagany, jeśli tak to level +1 [awans]
                 myCharacter.checkLevelUp();
             }
         }
