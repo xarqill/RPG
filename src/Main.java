@@ -3,7 +3,13 @@ import java.util.Scanner;
 public class Main {
     static Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
+        MyCharacter person = new MyCharacter();
 
+        person.userName = createUserName();
+        person.profession = createProfession();
+
+        System.out.println(person.userName);
+        System.out.println(person.profession);
     }
 
 
