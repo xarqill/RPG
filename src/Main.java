@@ -14,6 +14,8 @@ public class Main {
 //        monster1.getBasicInformation();
 
 
+        MyCharacter person = new MyCharacter();
+
 
         Scanner scanner = new Scanner(System.in);
         boolean isCorrectUserName = true;
@@ -22,21 +24,25 @@ public class Main {
         // Utawianie userName przez użytkownika
         while (isCorrectUserName) {
             System.out.print("Podaj swój nick: ");
-            userName = scanner.nextLine();
+            person.userName = scanner.nextLine();
 
-            if (userName.length() < 5) {
+            if (person.userName.length() < 5) {
                 System.out.println("Nazwa użytkownika nie może być krótsza niż 5 znaków!");
                 System.out.println();
-            } else if (userName.length() > 12) {
+            } else if (person.userName.length() > 12) {
                 System.out.println("Nazwa użytkownika nie może być dłuższa niż 12 znaków!");
                 System.out.println();
             } else {
-                System.out.println("Twoja nazwa użytkownika: " + userName);
+                System.out.println("Twoja nazwa użytkownika: " + person.userName);
                 System.out.println();
                 System.out.println();
                 isCorrectUserName = false;
             }
         }
+
+
+
+
 
         // Wybieranie profesji przez użytkownika
         while (isCorrectProfession) {
@@ -45,23 +51,23 @@ public class Main {
             int chooseProfession = scanner.nextInt();
 
             if (chooseProfession == 1) {
-                profession = "Wojownik";
-                System.out.println("Wybrałeś profesję: " + profession);
+                person.profession = "Wojownik";
+                System.out.println("Wybrałeś profesję: " + person.profession);
                 System.out.println();
                 isCorrectProfession = false;
             } else if (chooseProfession == 2) {
-                profession = "Paladyn";
-                System.out.println("Wybrałeś profesję: " + profession);
+                person.profession = "Paladyn";
+                System.out.println("Wybrałeś profesję: " + person.profession);
                 System.out.println();
                 isCorrectProfession = false;
             } else if (chooseProfession == 3) {
-                profession = "Zwiadowca";
-                System.out.println("Wybrałeś profesję: " + profession);
+                person.profession = "Zwiadowca";
+                System.out.println("Wybrałeś profesję: " + person.profession);
                 System.out.println();
                 isCorrectProfession = false;
             } else if (chooseProfession == 4) {
-                profession = "Mag";
-                System.out.println("Wybrałeś profesję: " + profession);
+                person.profession = "Mag";
+                System.out.println("Wybrałeś profesję: " + person.profession);
                 System.out.println();
                 isCorrectProfession = false;
             } else {
