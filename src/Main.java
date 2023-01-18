@@ -92,4 +92,15 @@ public class Main {
 
         }
     }
+
+    private static void win_fight(MyCharacter myCharacter, Monster monster) {
+        if (fight(myCharacter, monster)) {
+            myCharacter.setExperience(myCharacter.getExperience() + monster.getExperience());
+            myCharacter.setGold(myCharacter.getGold() + monster.getGold());
+
+            if (myCharacter.isEnaughExperienceToLevelUp()) {
+                myCharacter.checkLevelUp();
+            }
+        }
+    }
 }
