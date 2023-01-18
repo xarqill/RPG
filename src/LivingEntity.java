@@ -8,8 +8,13 @@ public class LivingEntity {
     private int healthPoints;
     private int damage;
 
-    public LivingEntity() {
-        // Konstruktor
+    public LivingEntity(String name, int level, int experience, int gold, int healthPoints, int damage) {
+        this.name = name;
+        this.level = level;
+        this.experience = experience;
+        this.gold = gold;
+        this.healthPoints = healthPoints;
+        this.damage = damage;
     }
 
     public String getName() {
