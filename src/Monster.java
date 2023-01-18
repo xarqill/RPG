@@ -7,6 +7,7 @@ public class Monster {
     private int healthPoints;
     private int damage;
     private int exp;
+    private int gold;
 
     // Konstruktor, który umożliwia szybkie nadawanie wartości podstawowym atrybutom potwora
     public Monster(String name, int level, int healthPoints, int damage, int exp) {
@@ -53,6 +54,14 @@ public class Monster {
         this.exp = exp;
     }
 
+    public void getGold(int gold) {
+        this.gold = gold;
+    }
+
+    public void setGold(int gold) {
+        this.gold = gold;
+    }
+
     public void getBasicInformation() {
         System.out.println("-----------------------------------------------------------");
         System.out.println("Nazwa: " + name);
@@ -72,6 +81,7 @@ public class Monster {
                 ", healthPoints=" + healthPoints +
                 ", damage=" + damage +
                 ", exp=" + exp +
+                ", gold=" + gold +
                 '}';
     }
 
@@ -88,11 +98,12 @@ public class Monster {
                 && healthPoints == monster.healthPoints
                 && damage == monster.damage
                 && exp == monster.exp
+                && gold == monster.gold
                 && Objects.equals(name, monster.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, level, healthPoints, damage, exp);
+        return Objects.hash(name, level, healthPoints, damage, exp, gold);
     }
 }

@@ -79,4 +79,19 @@ public class Main {
         System.out.println("Złoto: " + myCharacter.getGold());
         System.out.println("-----------------------------------------------------------");
     }
+
+//    private static boolean fight(MyCharacter myCharacter, Monster monster) {
+//        while (myCharacter.getHealthPoints <= 0 || monster.getHealthPoints() <= 0) {
+//            if (myCharacter.getHealthPoints > 0 && monster.getHealthPoints() > 0) {
+//                monster.setHealthPoints(monster.getHealthPoints() - myCharacter.getDamage());
+//                myCharacter.setHealthPoints(myCharacter.getHealthPoints - monster.getDamage());
+//            } else if (myCharacter.getHealthPoints <= 0 && monster.getHealthPoints() > 0) {
+//                System.out.println("Walkę wygrał: " + monster.getName());
+//                return false;
+//            } else if (monster.getHealthPoints() <= 0 && myCharacter.getHealthPoits > 0) {
+//                System.out.println("Walkę wygrał: " + myCharacter.getUserName());
+//                return true;
+//            }
+//        }
+//    }
 }
