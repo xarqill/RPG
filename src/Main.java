@@ -1,23 +1,22 @@
-import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
     static Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
-        createUserName();
-        createProfession();
-
         MyCharacter person = new MyCharacter();
+
+        person.userName = createUserName();
+        person.profession = createProfession();
     }
 
 
     // Utawianie userName przez użytkownika
-    private static void createUserName () {
+    private static String createUserName () {
+        String userName = scanner.nextLine();
         boolean isCorrectUserName = true;
 
         while (isCorrectUserName) {
             System.out.print("Podaj swój nick: ");
-            String userName = scanner.nextLine();
 
             if (userName.length() < 5) {
                 System.out.println("Nazwa użytkownika nie może być krótsza niż 5 znaków!");
@@ -31,13 +30,13 @@ public class Main {
                 System.out.println();
                 isCorrectUserName = false;
             }
-        }
+        } return userName;
     }
 
     // Wybieranie profesji przez użytkownika
-    private static void createProfession() {
+    private static String createProfession() {
         boolean isCorrectProfession = true;
-        String profession;
+        String profession = "";
 
         while (isCorrectProfession) {
             System.out.println("Dostępne profesje: [1] Wojownik || [2] Paladyn || [3] Zwiadowca || [4] Mag");
@@ -69,6 +68,6 @@ public class Main {
                 System.out.println();
                 System.out.println();
             }
-        }
+        } return profession;
     }
 }
