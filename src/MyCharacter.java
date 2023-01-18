@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class MyCharacter {
     // Podstawowe atrybuty i ich domyślne wartości przydzielane ----> postaci
     private final String userName;
@@ -8,7 +10,7 @@ public class MyCharacter {
     private int requiredExperience = 10;
     private int gold = 0;
 
-    MyCharacter(String userName, String profession) {
+    public MyCharacter(String userName, String profession) {
         this.userName = userName;
         this.profession = profession;
 
@@ -85,5 +87,36 @@ public class MyCharacter {
         System.out.println("Doświadczenie: " + experience);
         System.out.println("Złoto: " + gold);
         System.out.println("-----------------------------------------------------------");
+    }
+
+
+    @Override
+    public String toString() {
+        return "MyCharacter{" +
+                "userName='" + userName + '\'' +
+                ", profession='" + profession + '\'' +
+                ", maxLevel=" + maxLevel +
+                ", level=" + level +
+                ", experience=" + experience +
+                ", requiredExperience=" + requiredExperience +
+                ", gold=" + gold +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        MyCharacter that = (MyCharacter) o;
+        return maxLevel == that.maxLevel && level == that.level && experience == that.experience && requiredExperience == that.requiredExperience && gold == that.gold && Objects.equals(userName, that.userName) && Objects.equals(profession, that.profession);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(userName, profession, maxLevel, level, experience, requiredExperience, gold);
     }
 }

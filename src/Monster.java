@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Monster {
     // Podstawowe atrybuty dla każdego potwora
     final private String name;
@@ -7,14 +9,14 @@ public class Monster {
     private int exp;
 
     // Konstruktor, który umożliwia szybkie nadawanie wartości podstawowym atrybutom potwora
-    Monster(String name, int level, int healthPoints, int damage, int exp) {
+    public Monster(String name, int level, int healthPoints, int damage, int exp) {
         this.name = name;
         this.level = level;
         this.healthPoints = healthPoints;
         this.damage = damage;
         this.exp = exp;
     }
-    
+
     public String getName() {
         return name;
     }
@@ -59,5 +61,34 @@ public class Monster {
         System.out.println("Obrażenia: " + damage);
         System.out.println("Exp do zdobycia: " + exp);
         System.out.println("-----------------------------------------------------------");
+    }
+
+
+    @Override
+    public String toString() {
+        return "Monster{" +
+                "name='" + name + '\'' +
+                ", level=" + level +
+                ", healthPoints=" + healthPoints +
+                ", damage=" + damage +
+                ", exp=" + exp +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Monster monster = (Monster) o;
+        return level == monster.level && healthPoints == monster.healthPoints && damage == monster.damage && exp == monster.exp && Objects.equals(name, monster.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, level, healthPoints, damage, exp);
     }
 }
