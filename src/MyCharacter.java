@@ -79,17 +79,6 @@ public class MyCharacter {
         }
     }
 
-    public void getBasicInformation() {
-        System.out.println("-----------------------------------------------------------");
-        System.out.println("Nazwa użytkownika: " + userName);
-        System.out.println("Profesja: " + profession);
-        System.out.println("Poziom: " + level);
-        System.out.println("Doświadczenie: " + experience);
-        System.out.println("Złoto: " + gold);
-        System.out.println("-----------------------------------------------------------");
-    }
-
-
     @Override
     public String toString() {
         return "MyCharacter{" +

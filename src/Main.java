@@ -69,4 +69,14 @@ public class Main {
             }
         }
     }
+
+    private static void getBasicInformation(MyCharacter myCharacter) {
+        System.out.println("-----------------------------------------------------------");
+        System.out.println("Nazwa użytkownika: " + myCharacter.getUserName());
+        System.out.println("Profesja: " + myCharacter.getProfession());
+        System.out.println("Poziom: " + myCharacter.getLevel());
+        System.out.println("Doświadczenie: " + myCharacter.getExperience());
+        System.out.println("Złoto: " + myCharacter.getGold());
+        System.out.println("-----------------------------------------------------------");
+    }
 }
