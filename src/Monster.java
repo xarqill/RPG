@@ -6,6 +6,15 @@ public class Monster {
     private int damage;
     private int exp;
 
+    // Konstruktor, który umożliwia szybkie nadawanie wartości podstawowym atrybutom potwora
+    Monster(String name, int level, int healthPoints, int damage, int exp) {
+        this.name = name;
+        this.level = level;
+        this.healthPoints = healthPoints;
+        this.damage = damage;
+        this.exp = exp;
+    }
+    
     public String getName() {
         return name;
     }
@@ -39,16 +48,6 @@ public class Monster {
     }
 
     public void setExp(int exp) {
-        this.exp = exp;
-    }
-
-
-    // Konstruktor, który umożliwia szybkie nadawanie wartości podstawowym atrybutom potwora
-    Monster(String name, int level, int healthPoints, int damage, int exp) {
-        this.name = name;
-        this.level = level;
-        this.healthPoints = healthPoints;
-        this.damage = damage;
         this.exp = exp;
     }
 
