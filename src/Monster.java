@@ -84,7 +84,11 @@ public class Monster {
             return false;
         }
         Monster monster = (Monster) o;
-        return level == monster.level && healthPoints == monster.healthPoints && damage == monster.damage && exp == monster.exp && Objects.equals(name, monster.name);
+        return level == monster.level
+                && healthPoints == monster.healthPoints
+                && damage == monster.damage
+                && exp == monster.exp
+                && Objects.equals(name, monster.name);
     }
 
     @Override
