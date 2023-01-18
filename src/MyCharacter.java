@@ -10,6 +10,12 @@ public class MyCharacter {
    private int requiredExperience = 10;
    private int gold = 0;
 
+    MyCharacter(String userName, String profession) {
+        this.userName = userName;
+        this.profession = profession;
+
+    }
+
     public String getProfession() {
         return profession;
     }
@@ -39,13 +45,15 @@ public class MyCharacter {
     }
 
     public void setLevel(int level) {
-        if (level <= 0)
+        if (level <= 0) {
             this.level = level;
+        }
     }
 
     public void setExperience(int experience) {
-        if (experience < 0)
+        if (experience < 0) {
             this.experience = experience;
+        }
     }
 
     public void setRequiredExperience(int requiredExperience) {
@@ -53,14 +61,9 @@ public class MyCharacter {
     }
 
     public void setGold(int gold) {
-        if (gold < 0)
+        if (gold < 0) {
             this.gold = gold;
-    }
-
-    MyCharacter(String userName, String profession) {
-        this.userName = userName;
-        this.profession = profession;
-
+        }
     }
     boolean isEnaughExperienceToLevelUp() {
         return experience >= requiredExperience; // Sprawdzamy czy exp >= reqExp | Jeśli tak = zwraca true | Jeśli nie = zwraca false
