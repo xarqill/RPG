@@ -4,7 +4,6 @@ public class Main {
     static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-
     }
 
 
@@ -83,12 +82,14 @@ public class Main {
                 return false;
             }
             monster.setHealthPoints(monster.getHealthPoints() - myCharacter.getDamage()); // Gracz atakuje potwora
+            System.out.println("Zadałeś przeciwnikowi " + myCharacter.getDamage() + "obrażeń   ||||||   Zostału mu " + monster.getHealthPoints() + "hp");
 
             if (monster.getHealthPoints() <= 0) { // Sprawdzamy czy potwór jest martwy
                 System.out.println("Wygrałeś pojedynek z: " + monster.getName());
                 return true;
             }
             myCharacter.setHealthPoints(myCharacter.getHealthPoints() - monster.getDamage()); // Potwór atakuje gracza
+            System.out.println("Otrzymałeś " + monster.getDamage() + "obrazeń od przeciwnika      ||||||   Twoje hp: " + myCharacter.getHealthPoints());
 
         }
     }
@@ -100,6 +101,7 @@ public class Main {
 
             if (myCharacter.isEnaughExperienceToLevelUp()) { // Sprawdzenie czy exp jest większy niż wymagany, jeśli tak to level +1 [awans]
                 myCharacter.checkLevelUp();
+                System.out.println("Awansowałeś do " + myCharacter.getLevel() + " poziomu!");
             }
         }
     }
