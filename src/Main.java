@@ -7,7 +7,9 @@ public class Main {
         MyCharacter person = new MyCharacter(createUserName(), createProfession());
         Monster monster = new Monster("pies", 1, 3, 2, 5, 1);
 
-        fight(person, monster);
+        if (fight(person, monster)) {
+            winFight(person, monster);
+        }
 
 
     }
@@ -82,21 +84,24 @@ public class Main {
     }
 
     private static boolean fight(MyCharacter myCharacter, Monster monster) {
+        System.out.println();
+        System.out.println("Toczysz walkę z przeciwnikiem: " + monster.getName());
+        System.out.println();
         while (true) {
             if (myCharacter.getHealthPoints() <= 0 && monster.getHealthPoints() > 0) { // Sprawdzamy czy gracz jest martwy
-                System.out.println("Przegrałeś pojedynek z: " + monster.getName());
+                System.out.println("Przegrałeś pojedynek z przeciwnikiem: " + monster.getName());
                 return false;
             }
             monster.setHealthPoints(monster.getHealthPoints() - myCharacter.getDamage()); // Gracz atakuje potwora
-            System.out.println("Zadałeś przeciwnikowi " + myCharacter.getDamage() + "obrażeń   ||||||   Zostału mu " + monster.getHealthPoints() + "hp");
+            System.out.println("Zadałeś przeciwnikowi " + myCharacter.getDamage() + " obrażeń   ||||||   Zostału mu " + monster.getHealthPoints() + "hp");
 
             if (monster.getHealthPoints() <= 0) { // Sprawdzamy czy potwór jest martwy
-                System.out.println("Wygrałeś pojedynek z: " + monster.getName());
-                winFight(myCharacter, monster);
+                System.out.println("Wygrałeś pojedynek z przeciwnikiem: " + monster.getName());
                 return true;
             }
             myCharacter.setHealthPoints(myCharacter.getHealthPoints() - monster.getDamage()); // Potwór atakuje gracza
             System.out.println("Otrzymałeś " + monster.getDamage() + "obrazeń od przeciwnika      ||||||   Twoje hp: " + myCharacter.getHealthPoints());
+            System.out.println("----------------------------------------------------------------------");
 
         }
     }
