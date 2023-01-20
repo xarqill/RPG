@@ -4,6 +4,12 @@ public class Main {
     static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
+        MyCharacter person = new MyCharacter(createUserName(), createProfession());
+        Monster monster = new Monster("pies", 1, 3, 2, 5, 1);
+
+        fight(person, monster);
+
+
     }
 
 
@@ -86,6 +92,7 @@ public class Main {
 
             if (monster.getHealthPoints() <= 0) { // Sprawdzamy czy potwór jest martwy
                 System.out.println("Wygrałeś pojedynek z: " + monster.getName());
+                winFight(myCharacter, monster);
                 return true;
             }
             myCharacter.setHealthPoints(myCharacter.getHealthPoints() - monster.getDamage()); // Potwór atakuje gracza
@@ -94,7 +101,7 @@ public class Main {
         }
     }
 
-    private static void win_fight(MyCharacter myCharacter, Monster monster) { // Podsumowanie wygranej walki
+    private static void winFight(MyCharacter myCharacter, Monster monster) { // Podsumowanie wygranej walki
         if (fight(myCharacter, monster)) { // Dodanie expa i golda po wygranej walce
             myCharacter.setExperience(myCharacter.getExperience() + monster.getExperience());
             myCharacter.setGold(myCharacter.getGold() + monster.getGold());

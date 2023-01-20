@@ -4,8 +4,8 @@ public class MyCharacter extends LivingEntity {
     private final int maxLevel = 300;
     private int requiredExperience = 10;
 
-    public MyCharacter(String name, int level, int experience, int gold, int healthPoints, int damage, String profession) {
-        super(name, level, experience, gold, healthPoints, damage);
+    public MyCharacter(String name, String profession) {
+        super(name, 1, 0, 0, 15, 1);
         this.profession = profession;
     }
 
