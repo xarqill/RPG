@@ -82,27 +82,30 @@ public class Main {
         System.out.println("Złoto: " + myCharacter.getGold());
         System.out.println("-----------------------------------------------------------");
     }
-
     private static boolean fight(MyCharacter myCharacter, Monster monster) {
         System.out.println();
         System.out.println("Toczysz walkę z przeciwnikiem: " + monster.getName());
         System.out.println();
-        while (true) {
-            if (myCharacter.getHealthPoints() <= 0 && monster.getHealthPoints() > 0) { // Sprawdzamy czy gracz jest martwy
-                System.out.println("Przegrałeś pojedynek z przeciwnikiem: " + monster.getName());
-                return false;
-            }
-            monster.setHealthPoints(monster.getHealthPoints() - myCharacter.getDamage()); // Gracz atakuje potwora
-            System.out.println("Zadałeś przeciwnikowi " + myCharacter.getDamage() + " obrażeń   ||||||   Zostału mu " + monster.getHealthPoints() + "hp");
 
-            if (monster.getHealthPoints() <= 0) { // Sprawdzamy czy potwór jest martwy
-                System.out.println("Wygrałeś pojedynek z przeciwnikiem: " + monster.getName());
+        while (myCharacter.isAlive() || monster.isAlive()) {
+            if (!monster.isAlive()) {
+                System.out.println("------------------------------------------------------------------------");
+                System.out.println();
+                System.out.println("Wygrałeś walkę z przeciwnikiem: " + monster.getName());
                 return true;
             }
-            myCharacter.setHealthPoints(myCharacter.getHealthPoints() - monster.getDamage()); // Potwór atakuje gracza
-            System.out.println("Otrzymałeś " + monster.getDamage() + "obrazeń od przeciwnika      ||||||   Twoje hp: " + myCharacter.getHealthPoints());
-            System.out.println("----------------------------------------------------------------------");
+            monster.setHealthPoints(monster.getHealthPoints() - myCharacter.getDamage());
+            System.out.println("------------------------------------------------------------------------");
+            System.out.println("Zadałeś " + myCharacter.getDamage() + " obrażeń przeciwnikowi || Punkty zdrowia przeciwnika: "
+                    + monster.getHealthPoints());
 
+            if (!myCharacter.isAlive()) {
+                System.out.println("Przegrałeś walkę z przeciwnikiem: " + monster.getName());
+                return false;
+            }
+            myCharacter.setHealthPoints(myCharacter.getHealthPoints() - monster.getDamage());
+            System.out.println("Przeciwnik zadał Ci: " + monster.getDamage() + " obrażeń  || Twoje punkty zdrowia: "
+                    + myCharacter.getHealthPoints());
         }
     }
 
@@ -116,5 +119,12 @@ public class Main {
                 System.out.println("Awansowałeś do " + myCharacter.getLevel() + " poziomu!");
             }
         }
+    }
+
+    private static boolean fightResult = fight(person, monster) {
+        if (fightResult) {
+            resultFight(person, monster);
+        }
+
     }
 }

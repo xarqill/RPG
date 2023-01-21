@@ -17,6 +17,12 @@ public class LivingEntity {
         this.damage = damage;
     }
 
+    // Sprawdza czy jednostka jest żywa
+    public boolean isAlive() {
+        return healthPoints > 0;
+    }
+
+
     public String getName() {
         return name;
     }
