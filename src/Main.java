@@ -8,7 +8,7 @@ public class Main {
         Monster monster = new Monster("pies", 1, 3, 2, 5, 1);
 
         if (fight(person, monster)) {
-            winFight(person, monster);
+            resultFight(person, monster);
         }
 
 
@@ -106,7 +106,7 @@ public class Main {
         }
     }
 
-    private static void winFight(MyCharacter myCharacter, Monster monster) { // Podsumowanie wygranej walki
+    private static void resultFight(MyCharacter myCharacter, Monster monster) { // Podsumowanie wygranej walki
         if (fight(myCharacter, monster)) { // Dodanie expa i golda po wygranej walce
             myCharacter.setExperience(myCharacter.getExperience() + monster.getExperience());
             myCharacter.setGold(myCharacter.getGold() + monster.getGold());
